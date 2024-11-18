@@ -46,11 +46,7 @@ public class SocketClient {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         String serverResponse = bufferedReader.readLine();
         System.out.println("server send ack "+serverResponse);
-
-        // Step 5: Close the resources to release them and avoid memory leaks
-        printWriter.close(); // Close the PrintWriter to release the resources
-        writer.close(); // Close the OutputStreamWriter (although it's redundant because PrintWriter also uses this)
-        socket.close(); // Close the socket connection to the server
-        System.out.println("Client connection closed"); // Confirm that the client connection is closed
+        socket.close();
+        System.out.println("Client connection closed");
     }
 }
